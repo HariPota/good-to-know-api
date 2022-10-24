@@ -1,11 +1,15 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const config = {
   db: {
     /* don't expose password or any sensitive info, done only for demo */
-    host: "localhost",
-    user: "good-to-know-api",
-    password: "12345678",
-    database: "good-to-know-api",
-    port: "8738"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
   },
   listPerPage: 11,
 };
