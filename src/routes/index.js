@@ -1,7 +1,7 @@
 const express = require('express');
-const general = require('./general');
+const category = require('./category.route');
 const router = express.Router();
 
-router.use(general);
+router.use(category);
 
 module.exports = router;

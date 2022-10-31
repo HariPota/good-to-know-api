@@ -1,13 +1,10 @@
-const mysql = require('mysql2/promise');
-const config = require('../../config/config');
+const {Sequelize} = require('sequelize');
+const {db} = require('../../config/config');
 
-async function query(sql, params) {
-  const connection = await mysql.createConnection(config.db);
-  const [results, ] = await connection.execute(sql, params);
+const sequelize = new Sequelize(db.database, db.user, db.password, {
+  host: db.host,
+  port: db.port,
+  dialect: 'mariadb' /// | 'postgres' | 'sqlite' | 'mysql' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
+});
 
-  return results;
-}
-
-module.exports = {
-  query
-}
+module.exports = sequelize;
