@@ -1,10 +1,8 @@
 function emptyOrRows(rows: Array<any>) {
   if (!rows) {
-    return [];
+    return []
   }
-  return rows;
+  return rows
 }
 
-export {
-  emptyOrRows
-}
+export { emptyOrRows }

@@ -1,17 +1,15 @@
-import sequelize from '../services/db';
-import { syncCategory } from '../models/category.model';
+import sequelize from '../services/db'
+import { syncCategory } from '../models/category.model'
 
-(async () => {
+;(async () => {
   try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
+    await sequelize.authenticate()
+    console.log('Connection has been established successfully.')
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    console.error('Unable to connect to the database:', error)
   }
-})();
+})()
 
-(async () => {
-  await syncCategory();
-})();
-
-
+;(async () => {
+  await syncCategory()
+})()

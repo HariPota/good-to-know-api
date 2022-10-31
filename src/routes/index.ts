@@ -1,8 +1,8 @@
-import express from 'express';
+import express from 'express'
 import category from './category.route'
 
-const router = express.Router();
+const router = express.Router()
 
-router.use(category);
+router.use(category)
 
-export default router;
+export default router
