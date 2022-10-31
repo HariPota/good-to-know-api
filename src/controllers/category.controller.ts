@@ -1,13 +1,14 @@
 import { Category } from '../models/category.model'
 import { NextFunction, Request, Response } from 'express'
+import { Route, Get} from 'tsoa'
 
-async function list(req: Request, res: Response, next: NextFunction) {
-  try {
-    res.json(await Category.findAll())
-  } catch (err: any) {
-    console.error('Error while getting programming languages ', err.message)
-    next(err)
+
+@Route('categories')
+export default class CategoryController {
+  @Get('/')
+  public async list(): Promise<{ message: string }> {
+    return {
+      message: 'pong',
+    }
   }
 }
-
-export { list }
