@@ -1,5 +1,5 @@
-const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../services/db');
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '../services/db';
 
 class Category extends Model {}
 
@@ -19,7 +19,7 @@ const syncCategory = async () => {
   await sequelize.sync();
 };
 
-module.exports = {
+export {
   Category,
   syncCategory
 };

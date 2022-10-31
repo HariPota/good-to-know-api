@@ -1,5 +1,7 @@
-const {Sequelize} = require('sequelize');
-const {db} = require('../../config/config');
+import { Sequelize } from 'sequelize';
+import config from '../config/config';
+
+const {db} = config;
 
 const sequelize = new Sequelize(db.database, db.user, db.password, {
   host: db.host,
@@ -7,4 +9,4 @@ const sequelize = new Sequelize(db.database, db.user, db.password, {
   dialect: 'mariadb' /// | 'postgres' | 'sqlite' | 'mysql' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
 });
 
-module.exports = sequelize;
+export default sequelize;

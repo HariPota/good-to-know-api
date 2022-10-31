@@ -1,7 +1,8 @@
-const express = require("express");
-const app = express();
+import express, { Express, Request, Response } from 'express';
+import router from './src/routes/index';
+
+const app: Express = express();
 const port = 3000;
-const router = require("./src/routes/index");
 
 app.use(express.json());
 app.use(
@@ -9,13 +10,13 @@ app.use(
     extended: true,
   })
 );
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.json({ message: "ok" });
 });
 app.use('/api', router);
 
 /* Error handler middleware */
-app.use((err, req, res, next) => {
+app.use((err: any, req: Request, res: Response) => {
   const statusCode = err.statusCode || 500;
   console.error(err.message, err.stack);
   res.status(statusCode).json({ message: err.message });

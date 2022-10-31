@@ -1,5 +1,5 @@
-const sequelize = require('../src/services/db');
-const { syncCategory } = require('../src/models/category.model');
+import sequelize from '../services/db';
+import { syncCategory } from '../models/category.model';
 
 (async () => {
   try {
