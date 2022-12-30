@@ -2,12 +2,12 @@
   "name": "good-to-know-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
-    "db:schema:update": "node dist/src/config/syncDatabse.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\"",
+    "db:schema:update": "node dist/config/sync-database.js",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
@@ -24,6 +24,10 @@
     "url": "https://github.com/HariPota/good-to-know-api/issues"
   },
   "homepage": "https://github.com/HariPota/good-to-know-api#readme",
+  "_moduleAliases": {
+    "@": "dist",
+    "@src": "dist/src"
+  },
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -38,6 +42,7 @@
     "concurrently": "^7.5.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
+    "module-alias": "^2.2.2",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"

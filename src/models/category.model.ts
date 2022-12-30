@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize'
-import sequelize from '../services/db'
+import sequelize from '@src/services/db.service'
 
 class Category extends Model {}
 

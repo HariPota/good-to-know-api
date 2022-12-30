@@ -1,5 +1,6 @@
+import 'module-alias/register'
 import express, { Express, Request, Response } from 'express'
-import router from './src/routes/index'
+import router from '@src/routes/index'
 
 const app: Express = express()
 const port = 3000

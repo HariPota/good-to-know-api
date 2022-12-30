@@ -1,4 +1,4 @@
-import { Category } from '../models/category.model'
+import { Category } from '@src/models/category.model'
 import { NextFunction, Request, Response } from 'express'
 
 async function list(req: Request, res: Response, next: NextFunction) {
