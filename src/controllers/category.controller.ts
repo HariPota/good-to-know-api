@@ -1,11 +1,11 @@
 import { Category } from '@src/models/category.model'
 import { NextFunction, Request, Response } from 'express'
 
-async function list(req: Request, res: Response, next: NextFunction) {
+const list = async (request: Request, response: Response, next: NextFunction) => {
   try {
-    res.json(await Category.findAll())
+    response.status(200).json(await Category.findAll())
   } catch (err: any) {
-    console.error('Error while getting programming languages ', err.message)
+    console.error('Error while getting categories ', err.message)
     next(err)
   }
 }

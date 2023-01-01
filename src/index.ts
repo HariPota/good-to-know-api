@@ -1,29 +1,11 @@
 import 'module-alias/register'
-import express, { Express, Request, Response } from 'express'
-import router from '@src/routes/index'
+import { createServer } from '@src/utils/server.helper'
+import { Express } from 'express'
 
-const app: Express = express()
-const port = 3000
+const port = process.env.APP_PORT
 
-app.use(express.json())
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-)
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'ok' })
-})
-app.use('/api', router)
-
-/* Error handler middleware */
-app.use((err: any, req: Request, res: Response) => {
-  const statusCode = err.statusCode || 500
-  console.error(err.message, err.stack)
-  res.status(statusCode).json({ message: err.message })
-  return
-})
+const app: Express = createServer()
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at http://localhost:${port}`)
 })

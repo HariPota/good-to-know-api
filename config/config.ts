@@ -1,5 +1,3 @@
-import dotenv from 'dotenv'
-
 interface ConfigInterface {
   db: {
     host: string
@@ -10,8 +8,6 @@ interface ConfigInterface {
   }
   listPerPage: number
 }
-
-dotenv.config()
 
 const config: ConfigInterface = {
   db: {
