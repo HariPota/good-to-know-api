@@ -19,6 +19,8 @@ import { Post } from '@src/models/post.model'
 class Category extends Model<InferAttributes<Category>, InferCreationAttributes<Category>> {
   declare id: CreationOptional<number>
   declare name: string
+  declare createdAt: CreationOptional<Date>
+  declare updatedAt: CreationOptional<Date>
 
   declare getPosts: HasManyGetAssociationsMixin<Post>
   declare addPost: HasManyAddAssociationMixin<Post, number>
@@ -47,6 +49,8 @@ Category.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
   },
   {
     // Other model options go here
